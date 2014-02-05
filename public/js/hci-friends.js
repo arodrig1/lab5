@@ -9,7 +9,7 @@ $(document).ready(function() {
  * Function that is called when the document is ready.
  */
 function initializePage() {
-	console.log("Javascript connected!");
+	$('a.friendName').click(replaceName);
 }
 
 function anagrammedName(name) {
@@ -43,4 +43,10 @@ function anagrammedName(name) {
 		console.log(name + " not known for anagramming.");
 		return name;
 	}
+}
+
+function replaceName(event) {
+	event.preventDefault();
+	var newText = anagrammedName($(this).text());
+	$(this).text(newText);
 }
